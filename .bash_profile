@@ -45,30 +45,18 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export MC_SKIN=$HOME/.mc/solarized.ini
 
 # Add tab completion for many Bash commands
-if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-	source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
+if [ -f "$HOME/usr/share/bash-completion" ]; then
+	source "$HOME/usr/share/bash-completion";
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+if type _git &> /dev/null && [ -f "$HOME/usr/etc/bash_completion.d/git-completion.bash" ]; then
 	complete -o default -o nospace -F _git g;
 fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-
-if [ $(uname) == "Darwin" ]
-	then
-		# Add tab completion for `defaults read|write NSGlobalDomain`
-		# You could just use `-g` instead, but I like being explicit
-		complete -W "NSGlobalDomain" defaults;
-    # Add `killall` tab completion for common apps
-		complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
-		if which brew > /dev/null 2>&1 && [ -e $(brew --prefix)/etc/profile.d/z.sh ]; then . `brew --prefix`/etc/profile.d/z.sh ;fi;
-	fi
 
 [ -e "$HOME/.z.sh" ] && . $HOME/.z.sh
 
