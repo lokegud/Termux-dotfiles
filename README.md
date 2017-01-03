@@ -6,9 +6,12 @@ Forked from [jooray](https://github.com/jooray/dotfiles), modified to work for [
 
 **Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
+
 ### Using Git and the bootstrap script
 
 You can clone the repository wherever you want. (I like to keep it in `~/Termux-dotfiles`) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+
+**NOTE:** bootstrap.sh makes use of rsync , therefor remember to install it before `apt install rsync`
 
 ```bash
 git clone https://github.com/dominee/Termux-dotfiles.git && cd dotfiles && source bootstrap.sh
@@ -27,6 +30,8 @@ set -- -f; source bootstrap.sh
 ```
 
 ### Git-free install
+
+**NOTE:** bootstrap.sh makes use of rsync , therefor remember to install it before `apt install rsync`
 
 To install these dotfiles without Git:
 
