@@ -73,6 +73,11 @@ alias moo='fortune | cowsay'
 You could also use `~/.extra` to override settings, functions and aliases.
 You can also use `~/.gitconfig.local` and `~/.vimrc.local`.
 
+## Examples
+
+If you would like to see some examples from .aliases or .functions, have a look at [EXAMPLES.md](https://github.com/dominee/Termux-dotfiles/blob/master/EXAMPLES.md).
+
+
 ## Feedback
 
 Suggestions/improvements [welcome](https://github.com/dominee/Termux-dotfiles/issues)!
