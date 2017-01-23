@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Install command-line tools using Apt.
 
@@ -25,7 +25,6 @@ apt install bash \
     sed \
     tmux \
     vim \
-    vim-python \
     wget \
     zip
 
